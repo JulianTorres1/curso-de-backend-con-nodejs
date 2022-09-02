@@ -1,12 +1,14 @@
 const faker = require('faker');
-
 const boom = require('@hapi/boom');
+const sequealize = require('../libs/sequelize');
 
 class ProductsServices {
 
   constructor() {
     this.products = [];
     this.generate();
+    // this.pool = pool;
+    // this.pool.on('error', (err) => console.error(err));
   }
 
   async generate(){
@@ -30,9 +32,9 @@ class ProductsServices {
   }
 
   async find(){
-    return new Promise((resolve, reject) => {
-      resolve(this.products)
-    })
+    const query = 'SELECT * FROM tasks';
+    const [data] = await sequealize.query(query);
+    return data;
   }
 
 
