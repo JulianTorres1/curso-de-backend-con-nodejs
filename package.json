@@ -7,7 +7,10 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
-    "lint": "eslint"
+    "lint": "eslint",
+    "migrations:generate": "sequelize-cli migration:generate --name",
+    "migratiosn:run": "sequelize-cli db:migrate",
+    "migratiosn:revert": "sequelize-cli db:migrate:undo"
   },
   "author": "Nicolas Julian Torres",
   "license": "MIT",
@@ -15,7 +18,8 @@
     "eslint": "^8.22.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "sequelize-cli": "^6.4.1"
   },
   "dependencies": {
     "@hapi/boom": "^10.0.0",
